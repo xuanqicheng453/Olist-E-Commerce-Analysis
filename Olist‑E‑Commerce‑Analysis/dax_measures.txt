@@ -1,0 +1,8 @@
+// Olist PowerBI DAX Measures
+Total Revenue = SUM(order_items[price])
+Total Orders = DISTINCTCOUNT(orders[order_id])
+Unique Customers = DISTINCTCOUNT(customers[customer_id])
+Average Order Value = [Total Revenue]/[Total Orders]
+Delivered Orders = CALCULATE([Total Orders],orders[order_status]="delivered")
+Delivered Rate = DIVIDE([Delivered Orders],[Total Orders])
+Repeat Purchase Rate = BLANK()
